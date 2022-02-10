@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node
+{
+    public:
+    int data;
+    Node *next;
+};
+class linkedList
+{
+    private:
+    Node *first;
+    Node *last;
+    
+    public:
+    linkedList()
+    {
+        first=nullptr;
+        last=nullptr;
+    }
+    void insertNode(int x)
+    {
+        Node *temp=new Node;
+        temp->data=x;
+        if(first==nullptr)
+        {
+            temp->next=nullptr;
+            first=temp;
+            last=temp;
+        }
+        else
+        {
+            temp->next=nullptr;
+            last->next=temp;
+            last=temp;
+        }
+    }
+    void display()
+    {
+        Node *p=first;
+        while(p)
+        {
+            cout<<p->data<<" ";
+            p=p->next;
+        }
+    }
+    void searchIn(int z)
+    {
+        Node *t=first;
+        int count=0;
+        while(t)
+        {
+            if(t->data==z)
+            {
+                count++;
+            }
+                t=t->next;
+        }
+        cout<<endl;
+        if(count!=0)
+        cout<<"found";
+        else
+        cout<<"not found";
+    }
+    
+};
+int main()
+{
+    linkedList l1;
+    l1.insertNode(7);
+    l1.insertNode(6);
+    l1.insertNode(26);
+    l1.insertNode(5);
+    l1.insertNode(2);
+    l1.insertNode(2);
+    l1.display();
+    l1.searchIn(2);
+}
