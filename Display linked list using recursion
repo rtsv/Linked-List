@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node
+{
+    public:
+    int data;
+    Node *next;
+};
+class linkedList
+{
+    private:
+    Node *first;
+    Node *last;
+    
+    public:
+    linkedList()
+    {
+        first=nullptr;
+        last=nullptr;
+    }
+    Node * getRoot()
+    {
+        return first;
+    }
+    void insertNode(int x)
+    {
+        Node *temp=new Node;
+        temp->data=x;
+        temp->next=nullptr;
+        if(first==nullptr)
+        {
+            first=temp;
+            last=temp;
+        }
+        else
+        {
+            last->next=temp;
+            last=temp;
+        }
+    }
+    void rDisplay(Node *temp)
+    {
+        if(temp==nullptr)
+            return;
+        cout<<temp->data<<" ";
+        rDisplay(temp->next);
+        
+    }
+    
+};
+int main()
+{
+    
+    linkedList l1;
+
+    l1.insertNode(1);
+    l1.insertNode(1);
+    l1.insertNode(1);
+    l1.insertNode(15);
+    l1.insertNode(1);
+    Node *temp=l1.getRoot();
+    l1.rDisplay(temp);
+}
