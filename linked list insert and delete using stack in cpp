@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node
+{
+public:
+    int data;
+    Node *next;
+};
+class stackk
+{
+private:
+    Node *top;
+    
+public:
+    stackk()
+    {
+        top=nullptr;
+    }
+    
+    void push(int x)
+    {
+        Node *temp=new Node;
+        if(temp==nullptr)
+            cout<<"stack is full";
+        else
+        {
+            temp->data=x;
+            temp->next=top;
+            top=temp;
+        }
+    }
+    void pop()
+    {
+        Node *p=top;
+        if(top==nullptr)
+            cout<<"stack is empty";
+        else
+        {
+            cout<<top->data<<endl;
+            top=top->next;
+            p->next=nullptr;
+            delete p;
+        }
+    }
+    void display()
+    {
+        Node *t=top;
+        while(t)
+        {
+            cout<<t->data<<" ";
+            t=t->next;
+        }
+    }
+    
+};
+int main()
+{
+    stackk stk;
+    stk.push(5);
+    stk.push(6);
+    stk.push(51);
+    stk.push(56);
+    stk.pop();
+    stk.pop();
+    stk.display();
+}
