@@ -1,0 +1,155 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node
+{
+public:
+    int data;
+    Node *next;
+};
+class stackk
+{
+private:
+    Node *top;
+    
+public:
+    stackk()
+    {
+        top=nullptr;
+    }
+    Node *getTop()
+    {
+        return top;
+    }
+    
+    void push(int x)
+    {
+        Node *temp=new Node;
+        if(temp==nullptr)
+            cout<<"stack is full";
+        else
+        {
+            temp->data=x;
+            temp->next=top;
+            top=temp;
+        }
+    }
+    void pop()
+    {
+        Node *p=top;
+        if(p==nullptr)
+            cout<<"stack is empty";
+        else
+        {
+            cout<<top->data<<endl;
+            top=top->next;
+            p->next=nullptr;
+            delete p;
+        }
+    }
+    void display()
+    {
+        Node *t=top;
+        while(t)
+        {
+            cout<<t->data<<" ";
+            t=t->next;
+        }
+        cout<<endl;
+    }
+    void rDisplay(Node *p)
+    {
+        Node *t=p;
+        if(t!=nullptr)
+        {
+            cout<<t->data<<" ";
+            rDisplay(t->next);
+        }
+        cout<<endl;
+    }
+    
+};
+class queueee
+{
+private:
+    Node *front;
+    Node *rear;
+    
+public:
+    queueee()
+    {
+        front=nullptr;
+        rear=nullptr;
+    }
+    void push(int x)
+    {
+        Node *temp=new Node;
+        temp->data=x;
+        temp->next=nullptr;
+        if(front==nullptr)
+        {
+            front=temp;
+            rear=temp;
+        }
+        else
+        {
+            rear->next=temp;
+            rear=temp;
+        }
+    }
+    void pop()
+    {
+        Node *k=front;
+        if(k==nullptr || front>rear)
+            cout<<"queue is empty "<<endl;
+        else
+        {
+            cout<<k->data<<" deleted"<<endl;
+            front=front->next;
+            k->next=nullptr;
+            delete k;
+        }
+    }
+    void display()
+    {
+        Node *p=front;
+        while(p)
+        {
+            cout<<p->data<<" ";
+            p=p->next;
+        }
+    }
+    
+};
+int main()
+{
+    stackk stk;
+    stk.push(5);
+    stk.push(6);
+    stk.push(51);
+    stk.push(56);
+    stk.pop();
+    stk.pop();
+    stk.push(53);
+    stk.display();
+    stk.rDisplay(stk.getTop());
+    
+    queueee q;
+    q.push(4);
+    q.push(8);
+    q.push(39);
+    q.pop();
+    q.push(3);
+    q.push(33);
+    q.push(73);
+    q.push(30);
+    q.pop();
+    q.pop();
+    q.pop();
+    q.pop();
+    q.pop();
+    q.pop();
+    q.pop();
+    // q.pop();
+    
+    q.display();
+}
