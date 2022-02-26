@@ -80,7 +80,7 @@ public:
         front=nullptr;
         rear=nullptr;
     }
-    void push(int x)
+    void enqueue(int x)
     {
         Node *temp=new Node;
         temp->data=x;
@@ -96,7 +96,7 @@ public:
             rear=temp;
         }
     }
-    void pop()
+    void dequeue()
     {
         Node *k=front;
         if(k==nullptr || front>rear)
@@ -134,22 +134,22 @@ int main()
     stk.rDisplay(stk.getTop());
     
     queueee q;
-    q.push(4);
-    q.push(8);
-    q.push(39);
-    q.pop();
-    q.push(3);
-    q.push(33);
-    q.push(73);
-    q.push(30);
-    q.pop();
-    q.pop();
-    q.pop();
-    q.pop();
-    q.pop();
-    q.pop();
-    q.pop();
-    // q.pop();
+    q.enqueue(4);
+    q.enqueue(8);
+    q.enqueue(39);
+    q.dequeue();
+    q.enqueue(3);
+    q.enqueue(33);
+    q.enqueue(73);
+    q.enqueue(30);
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    // q.dequeue();
     
     q.display();
 }
