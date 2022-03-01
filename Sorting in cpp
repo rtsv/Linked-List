@@ -62,7 +62,6 @@ int main()
 // 	bubbleSort(a,12);
 // 	insertionSort(a,12);
 // 	selectionSort(a,12);
-    quickSort(a,12);
 	for(int i=0;i<12;i++)
 		cout<<a[i]<<" ";
 	cout<<endl;
